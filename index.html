@@ -1,684 +1,275 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Create a professional ATS-friendly CV online for free. Build, preview and download your resume as PDF. No registration or payment required.">
-  <meta name="keywords" content="free CV maker, free resume builder, ATS resume, online CV builder, free PDF resume">
-  <meta name="author" content="FreeCV Maker">
-  <meta name="theme-color" content="#173b70">
-  <title>FreeCV Maker - Free Online CV and Resume Builder</title>
-
-  <style>
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f3f6fb;
-      color: #26354a;
-    }
-
-    header {
-      background: #173b70;
-      color: white;
-      padding: 20px;
-    }
-
-    .header-inner {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .logo {
-      font-size: 25px;
-      font-weight: 800;
-    }
-
-    .header-tag {
-      font-size: 13px;
-      color: #dce9ff;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 40px 20px 25px;
-    }
-
-    .hero h1 {
-      font-size: clamp(27px, 5vw, 39px);
-      color: #173b70;
-      margin: 0 0 12px;
-    }
-
-    .hero p {
-      color: #64748b;
-      max-width: 650px;
-      line-height: 1.7;
-      margin: auto;
-    }
-
-    .free-label {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 7px 14px;
-      background: #e1f6e9;
-      color: #16733b;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: bold;
-    }
-
-    .workspace {
-      max-width: 1400px;
-      margin: 20px auto 50px;
-      padding: 0 18px;
-      display: grid;
-      grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
-      gap: 22px;
-      align-items: start;
-    }
-
-    .panel {
-      background: white;
-      border-radius: 13px;
-      padding: 23px;
-      box-shadow: 0 3px 15px rgba(20, 50, 90, 0.06);
-      border: 1px solid #e4eaf2;
-    }
-
-    .panel h2 {
-      margin: 0 0 8px;
-      color: #173b70;
-      font-size: 21px;
-    }
-
-    .panel-intro {
-      font-size: 13px;
-      color: #718096;
-      line-height: 1.6;
-      margin-bottom: 22px;
-    }
-
-    .section-heading {
-      margin: 27px 0 15px;
-      padding-bottom: 9px;
-      border-bottom: 1px solid #e5eaf1;
-      color: #173b70;
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    .field {
-      margin-bottom: 14px;
-    }
-
-    label {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 7px;
-      color: #394b62;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 11px 12px;
-      border: 1px solid #d6deea;
-      border-radius: 7px;
-      font-family: inherit;
-      font-size: 14px;
-      color: #26354a;
-      background: white;
-      outline: none;
-    }
-
-    input:focus, textarea:focus {
-      border-color: #3977c9;
-      box-shadow: 0 0 0 2px rgba(57,119,201,.10);
-    }
-
-    textarea {
-      min-height: 95px;
-      resize: vertical;
-      line-height: 1.5;
-    }
-
-    .hint {
-      font-size: 11px;
-      color: #8491a4;
-      margin-top: 5px;
-      line-height: 1.5;
-    }
-
-    .two-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 23px;
-    }
-
-    button {
-      border: 0;
-      border-radius: 7px;
-      padding: 12px 17px;
-      font-size: 13px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .primary {
-      background: #1764bd;
-      color: white;
-    }
-
-    .primary:hover { background: #104d96; }
-
-    .secondary {
-      background: #eaf1fb;
-      color: #214c83;
-    }
-
-    .secondary:hover { background: #dce8f8; }
-
-    .download {
-      background: #16834a;
-      color: white;
-    }
-
-    .download:hover { background: #106738; }
-
-    .preview-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-
-    .preview-top h2 { margin: 0; }
-
-    .paper {
-      background: white;
-      color: #222;
-      width: 100%;
-      min-height: 900px;
-      padding: 38px 35px;
-      box-shadow: 0 2px 12px rgba(0,0,0,.09);
-      border: 1px solid #e3e8ef;
-      overflow-wrap: anywhere;
-    }
-
-    .cv-name {
-      font-size: 29px;
-      font-weight: bold;
-      color: #173b70;
-      margin: 0 0 7px;
-    }
-
-    .cv-job {
-      font-size: 15px;
-      color: #53647b;
-      margin-bottom: 12px;
-    }
-
-    .cv-contact {
-      font-size: 11px;
-      color: #555;
-      line-height: 1.8;
-      padding-bottom: 15px;
-      border-bottom: 2px solid #173b70;
-    }
-
-    .cv-section {
-      margin-top: 22px;
-    }
-
-    .cv-section h3 {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #173b70;
-      border-bottom: 1px solid #cbd5e1;
-      padding-bottom: 6px;
-      margin: 0 0 10px;
-    }
-
-    .cv-section p {
-      font-size: 12px;
-      line-height: 1.65;
-      margin: 5px 0;
-      white-space: pre-line;
-    }
-
-    .cv-entry {
-      margin-bottom: 13px;
-    }
-
-    .cv-entry strong {
-      font-size: 12px;
-    }
-
-    .cv-entry small {
-      display: block;
-      font-size: 11px;
-      color: #64748b;
-      margin-top: 3px;
-    }
-
-    .empty-note {
-      color: #9aa5b4;
-      font-style: italic;
-    }
-
-    .privacy-note {
-      margin-top: 16px;
-      background: #edf6ff;
-      padding: 13px;
-      border-radius: 8px;
-      color: #426184;
-      font-size: 12px;
-      line-height: 1.6;
-    }
-
-    footer {
-      background: #173b70;
-      color: white;
-      text-align: center;
-      padding: 25px 15px;
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    footer a {
-      color: #dce9ff;
-      text-decoration: none;
-      margin: 0 8px;
-    }
-
-    @media (max-width: 850px) {
-      .workspace { grid-template-columns: 1fr; }
-      .paper { min-height: 700px; }
-    }
-
-    @media (max-width: 480px) {
-      .two-columns { grid-template-columns: 1fr; }
-      .panel { padding: 16px; }
-      .paper { padding: 25px 19px; }
-    }
-
-    @page {
-      size: A4;
-      margin: 14mm;
-    }
-
-    @media print {
-      body { background: white; }
-
-      header, .hero, .form-panel, footer,
-      .preview-top, .privacy-note {
-        display: none !important;
-      }
-
-      .workspace {
-        display: block;
-        margin: 0;
-        padding: 0;
-        max-width: none;
-      }
-
-      .preview-panel {
-        padding: 0;
-        border: 0;
-        box-shadow: none;
-        margin: 0;
-      }
-
-      .paper {
-        border: 0;
-        box-shadow: none;
-        padding: 0;
-        min-height: auto;
-        width: 100%;
-      }
-
-      .cv-section, .cv-entry {
-        break-inside: avoid;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Create a professional ATS-friendly CV online for free. Build, preview and download your resume as PDF. No registration or payment required.">
+<meta name="theme-color" content="#173b70">
+<title>FreeCV Maker - Free Online CV and Resume Builder</title>
+<style>
+:root{--navy:#173b70;--blue:#1764bd;--ink:#26354a;--muted:#64748b;--line:#e2e8f0;--paper:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fb;color:var(--ink)}
+header{background:var(--navy);color:#fff;padding:20px}
+.header-inner{max-width:1250px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.logo{font-size:25px;font-weight:800}.header-tag{font-size:13px;color:#dce9ff}
+.hero{text-align:center;padding:38px 20px 24px}.hero h1{font-size:clamp(27px,5vw,39px);color:var(--navy);margin:0 0 12px}
+.hero p{color:var(--muted);max-width:680px;line-height:1.7;margin:auto}
+.free-label{display:inline-block;margin-top:15px;padding:7px 14px;background:#e1f6e9;color:#16733b;border-radius:20px;font-size:13px;font-weight:bold}
+.workspace{max-width:1450px;margin:20px auto 50px;padding:0 18px;display:grid;grid-template-columns:minmax(320px,1fr) minmax(320px,1fr);gap:22px;align-items:start}
+.panel{background:#fff;border-radius:13px;padding:23px;box-shadow:0 3px 15px rgba(20,50,90,.06);border:1px solid #e4eaf2;min-width:0}
+.panel h2{margin:0 0 8px;color:var(--navy);font-size:21px}.panel-intro{font-size:13px;color:#718096;line-height:1.6;margin-bottom:20px}
+.section-heading{margin:27px 0 15px;padding-bottom:9px;border-bottom:1px solid #e5eaf1;color:var(--navy);font-size:16px;font-weight:bold}
+.field{margin-bottom:14px}label{display:block;font-size:13px;font-weight:600;margin-bottom:7px;color:#394b62}
+input,textarea,select{width:100%;padding:11px 12px;border:1px solid #d6deea;border-radius:7px;font-family:inherit;font-size:14px;color:var(--ink);background:#fff;outline:none}
+input:focus,textarea:focus,select:focus{border-color:#3977c9;box-shadow:0 0 0 2px rgba(57,119,201,.10)}
+textarea{min-height:90px;resize:vertical;line-height:1.5}
+.hint{font-size:11px;color:#8491a4;margin-top:5px;line-height:1.5}
+.two-columns{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.entry-card{border:1px solid #e1e8f0;border-radius:9px;padding:14px;margin:12px 0;background:#fbfdff}
+.entry-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.entry-head strong{font-size:13px;color:#334155}
+button{border:0;border-radius:7px;padding:11px 15px;font-size:13px;font-weight:bold;cursor:pointer}
+.primary{background:#1764bd;color:#fff}.primary:hover{background:#104d96}
+.secondary{background:#eaf1fb;color:#214c83}.secondary:hover{background:#dce8f8}
+.download{background:#16834a;color:#fff}.download:hover{background:#106738}
+.remove-btn{background:#fff0f0;color:#a32929;padding:7px 10px}
+.add-btn{margin:3px 0 8px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:23px}
+.template-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.template-option{border:1px solid #d6deea;background:#fff;color:#334155;text-align:left;padding:12px;border-radius:8px}
+.template-option span{display:block;font-size:12px;font-weight:normal;color:#64748b;margin-top:4px;line-height:1.4}
+.template-option.active{border:2px solid var(--blue);background:#f1f7ff;padding:11px}
+.privacy-note{margin-top:16px;background:#edf6ff;padding:13px;border-radius:8px;color:#426184;font-size:12px;line-height:1.6}
+.preview-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:15px}
+.preview-top h2{margin:0}.paper{background:var(--paper);color:#222;width:100%;min-height:900px;padding:38px 35px;box-shadow:0 2px 12px rgba(0,0,0,.09);border:1px solid #e3e8ef;overflow-wrap:anywhere}
+.cv-header{padding-bottom:15px;border-bottom:2px solid var(--accent,var(--navy));margin-bottom:20px}
+.cv-name{font-size:29px;font-weight:bold;color:var(--accent,var(--navy));margin:0 0 7px}
+.cv-job{font-size:15px;color:#53647b;margin-bottom:10px}
+.cv-contact{font-size:11px;color:#555;line-height:1.8}
+.cv-section{margin-top:21px;min-width:0}.cv-section h3{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--accent,var(--navy));border-bottom:1px solid #cbd5e1;padding-bottom:6px;margin:0 0 10px}
+.cv-section p{font-size:12px;line-height:1.6;margin:5px 0;white-space:pre-line}
+.cv-entry{margin-bottom:13px;break-inside:avoid}.cv-entry strong{font-size:12px}.cv-entry small{display:block;font-size:11px;color:#64748b;margin-top:3px}
+.cv-entry .details{font-size:12px;line-height:1.55;white-space:pre-line;margin-top:5px}
+.cv-skills{display:flex;flex-wrap:wrap;gap:7px}.skill-item{font-size:11px;border:1px solid #cbd5e1;border-radius:4px;padding:4px 7px}
+.empty-note{color:#9aa5b4;font-style:italic}
+footer{background:var(--navy);color:#fff;text-align:center;padding:25px 15px;font-size:13px;line-height:1.8}
+#cvPreview{--accent:#173b70}
+#cvPreview.template-modern{--accent:#1764bd}
+#cvPreview.template-executive{--accent:#26354a}
+#cvPreview.template-classic{--accent:#444}
+#cvPreview.template-modern .cv-header{border-bottom:4px solid var(--accent)}
+#cvPreview.template-modern .cv-section h3{border-bottom:2px solid #dbeafe}
+#cvPreview.template-classic .cv-name{text-align:center;color:#222;font-family:Georgia,serif}
+#cvPreview.template-classic .cv-job,#cvPreview.template-classic .cv-contact{text-align:center}
+#cvPreview.template-classic .cv-header{border-bottom:1px solid #777}
+#cvPreview.template-executive .executive-layout{display:grid;grid-template-columns:1.65fr 1fr;gap:24px}
+#cvPreview.template-executive .side-column{border-left:1px solid #d8dee8;padding-left:18px}
+#cvPreview.template-executive .side-column .cv-section{margin-top:16px}
+@media(max-width:900px){.workspace{grid-template-columns:1fr}.paper{min-height:700px}}
+@media(max-width:520px){.two-columns{grid-template-columns:1fr}.panel{padding:16px}.paper{padding:25px 19px}.template-grid{grid-template-columns:1fr 1fr}}
+@page{size:A4;margin:14mm}
+@media print{
+ body{background:#fff}
+ header,.hero,.form-panel,footer,.preview-top,.privacy-note{display:none!important}
+ .workspace{display:block;margin:0;padding:0;max-width:none}
+ .preview-panel{padding:0;border:0;box-shadow:none;margin:0}
+ .paper{border:0;box-shadow:none;padding:0;min-height:auto;width:100%}
+ .cv-section,.cv-entry{break-inside:avoid}
+}
+</style>
 </head>
-
 <body>
-
-<header>
-  <div class="header-inner">
-    <div class="logo">📄 FreeCV Maker</div>
-    <div class="header-tag">Your career. Your CV. Completely free.</div>
-  </div>
-</header>
-
+<header><div class="header-inner"><div class="logo">📄 FreeCV Maker</div><div class="header-tag">Your career. Your CV. Completely free.</div></div></header>
 <section class="hero">
-  <h1>Create Your Professional CV for Free</h1>
-  <p>
-    Build a professional, ATS-friendly resume in minutes.
-    Enter your details, preview your CV and save it as a PDF.
-    No registration and no payment required.
-  </p>
-  <div class="free-label">✓ 100% FREE · No watermark · No subscription</div>
+<h1>Create Your Professional CV for Free</h1>
+<p>Build a professional, ATS-friendly resume in minutes. Enter your details, preview your CV and save it as a PDF. No registration and no payment required.</p>
+<div class="free-label">✓ 100% FREE · No watermark · No subscription</div>
 </section>
 
 <main class="workspace">
+<section class="panel form-panel">
+<h2>Build Your CV</h2>
+<p class="panel-intro">Complete the fields below. Your CV preview updates automatically. Leave optional fields blank.</p>
+<form id="cvForm">
+<div class="section-heading">Choose a CV Template</div>
+<div class="template-grid" id="templateChoices">
+<button type="button" class="template-option active" data-template="ats">Professional ATS<span>Clean single-column layout; best starting point for ATS.</span></button>
+<button type="button" class="template-option" data-template="modern">Modern Blue<span>Contemporary blue headings and accents.</span></button>
+<button type="button" class="template-option" data-template="executive">Executive<span>Two-column design for a polished senior profile.</span></button>
+<button type="button" class="template-option" data-template="classic">Classic<span>Traditional, centered professional CV.</span></button>
+</div>
 
-  <!-- CV FORM -->
-  <section class="panel form-panel">
-    <h2>Build Your CV</h2>
-    <p class="panel-intro">
-      Complete the fields below. Your CV preview will update automatically.
-      You can leave any optional field blank.
-    </p>
+<div class="section-heading">1. Personal Information</div>
+<div class="field"><label for="fullName">Full Name *</label><input id="fullName" autocomplete="name" placeholder="e.g. John Smith"></div>
+<div class="field"><label for="jobTitle">Professional Title</label><input id="jobTitle" placeholder="e.g. Senior Accountant"></div>
+<div class="two-columns">
+<div class="field"><label for="email">Email Address</label><input id="email" type="email" autocomplete="email" placeholder="your@email.com"></div>
+<div class="field"><label for="phone">Phone Number</label><input id="phone" type="tel" placeholder="+966 5XXXXXXXX"></div>
+</div>
+<div class="two-columns">
+<div class="field"><label for="location">City / Country</label><input id="location" placeholder="Riyadh, Saudi Arabia"></div>
+<div class="field"><label for="linkedin">LinkedIn Profile</label><input id="linkedin" placeholder="linkedin.com/in/yourname"></div>
+</div>
 
-    <form id="cvForm">
+<div class="section-heading">2. Professional Summary</div>
+<div class="field"><label for="summary">About Yourself</label><textarea id="summary" placeholder="Write a short professional introduction highlighting your experience, skills and career achievements."></textarea><div class="hint">Keep your summary clear, professional and relevant to the job.</div></div>
 
-      <div class="section-heading">1. Personal Information</div>
+<div class="section-heading">3. Work Experience</div>
+<div id="experienceList"></div>
+<button type="button" class="secondary add-btn" data-add="experience">+ Add Another Job</button>
 
-      <div class="field">
-        <label for="fullName">Full Name *</label>
-        <input id="fullName" placeholder="e.g. John Smith">
-      </div>
+<div class="section-heading">4. Education and Qualifications</div>
+<div id="educationList"></div>
+<button type="button" class="secondary add-btn" data-add="education">+ Add Education</button>
 
-      <div class="field">
-        <label for="jobTitle">Professional Title</label>
-        <input id="jobTitle" placeholder="e.g. Senior Accountant">
-      </div>
+<div class="section-heading">5. Skills</div>
+<div id="skillsList"></div>
+<button type="button" class="secondary add-btn" data-add="skills">+ Add Skill</button>
 
-      <div class="two-columns">
-        <div class="field">
-          <label for="email">Email Address</label>
-          <input id="email" type="email" placeholder="your@email.com">
-        </div>
-        <div class="field">
-          <label for="phone">Phone Number</label>
-          <input id="phone" type="tel" placeholder="+966 5XXXXXXXX">
-        </div>
-      </div>
+<div class="section-heading">6. Languages</div>
+<div id="languagesList"></div>
+<button type="button" class="secondary add-btn" data-add="languages">+ Add Language</button>
 
-      <div class="two-columns">
-        <div class="field">
-          <label for="location">City / Country</label>
-          <input id="location" placeholder="Riyadh, Saudi Arabia">
-        </div>
-        <div class="field">
-          <label for="linkedin">LinkedIn Profile</label>
-          <input id="linkedin" placeholder="linkedin.com/in/yourname">
-        </div>
-      </div>
+<div class="section-heading">7. Certifications and Training</div>
+<div id="certificationsList"></div>
+<button type="button" class="secondary add-btn" data-add="certifications">+ Add Certification</button>
 
-      <div class="section-heading">2. Professional Summary</div>
+<div class="section-heading">8. Additional Information (Optional)</div>
+<div class="field"><label for="additional">Other Relevant Information</label><textarea id="additional" placeholder="Projects, awards, volunteer experience or other relevant information."></textarea></div>
+</form>
+<div class="actions">
+<button type="button" class="primary" id="updateButton">Update CV Preview</button>
+<button type="button" class="download" id="downloadButton">Download CV as PDF</button>
+<button type="button" class="secondary" id="clearButton">Clear Form</button>
+</div>
+<div class="privacy-note">🔒 Your information is processed in your browser. This page does not intentionally send your CV details to a server. Avoid using a shared computer if you want to keep your information private.</div>
+</section>
 
-      <div class="field">
-        <label for="summary">About Yourself</label>
-        <textarea id="summary" placeholder="Write a short professional introduction highlighting your experience, skills and career achievements."></textarea>
-        <div class="hint">Tip: Keep your summary clear, professional and relevant to the job.</div>
-      </div>
-
-      <div class="section-heading">3. Work Experience</div>
-
-      <div class="field">
-        <label for="experience">Employment History</label>
-        <textarea id="experience" style="min-height:160px" placeholder="Job Title | Company Name&#10;Location | Start Date – End Date&#10;• Describe your responsibilities and achievements.&#10;• Mention relevant skills, projects and results.&#10;&#10;Previous Job Title | Previous Company&#10;Start Date – End Date&#10;• Describe your work and achievements."></textarea>
-        <div class="hint">Enter each job separately. Use bullet points to describe your responsibilities and achievements.</div>
-      </div>
-
-      <div class="section-heading">4. Education</div>
-
-      <div class="field">
-        <label for="education">Education and Qualifications</label>
-        <textarea id="education" placeholder="Degree / Qualification&#10;University or Institution&#10;Year of Graduation"></textarea>
-      </div>
-
-      <div class="section-heading">5. Skills</div>
-
-      <div class="field">
-        <label for="skills">Professional Skills</label>
-        <textarea id="skills" placeholder="Project Management, AutoCAD, Revit, Communication, Microsoft Office"></textarea>
-        <div class="hint">Separate skills with commas or put each skill on a new line.</div>
-      </div>
-
-      <div class="section-heading">6. Languages</div>
-
-      <div class="field">
-        <label for="languages">Languages</label>
-        <textarea id="languages" placeholder="English – Professional&#10;Arabic – Intermediate&#10;Hindi – Native"></textarea>
-      </div>
-
-      <div class="section-heading">7. Additional Information (Optional)</div>
-
-      <div class="field">
-        <label for="certifications">Certifications and Training</label>
-        <textarea id="certifications" placeholder="Professional certificates, training courses and licenses."></textarea>
-      </div>
-
-      <div class="field">
-        <label for="additional">Other Relevant Information</label>
-        <textarea id="additional" placeholder="Projects, awards, volunteer experience or other relevant information."></textarea>
-      </div>
-
-    </form>
-
-    <div class="actions">
-      <button type="button" class="primary" onclick="updateCV()">
-        Update CV Preview
-      </button>
-      <button type="button" class="download" onclick="downloadCV()">
-        Download CV as PDF
-      </button>
-      <button type="button" class="secondary" onclick="resetCV()">
-        Clear Form
-      </button>
-    </div>
-
-    <div class="privacy-note">
-      🔒 Your information is processed in your browser. This page does not
-      intentionally send your CV details to a server. Avoid using a shared
-      computer if you want to keep your information private.
-    </div>
-  </section>
-
-  <!-- CV PREVIEW -->
-  <section class="panel preview-panel">
-    <div class="preview-top">
-      <h2>Live CV Preview</h2>
-      <button class="download" onclick="downloadCV()">
-        Save as PDF
-      </button>
-    </div>
-
-    <div class="paper" id="cvPreview">
-
-      <h1 class="cv-name" id="pName">Your Name</h1>
-      <div class="cv-job" id="pJob">Your Professional Title</div>
-
-      <div class="cv-contact" id="pContact">
-        Email · Phone · Location
-      </div>
-
-      <section class="cv-section">
-        <h3>Professional Summary</h3>
-        <p id="pSummary" class="empty-note">Your professional summary will appear here.</p>
-      </section>
-
-      <section class="cv-section">
-        <h3>Work Experience</h3>
-        <p id="pExperience" class="empty-note">Your work experience will appear here.</p>
-      </section>
-
-      <section class="cv-section">
-        <h3>Education</h3>
-        <p id="pEducation" class="empty-note">Your education will appear here.</p>
-      </section>
-
-      <section class="cv-section">
-        <h3>Skills</h3>
-        <p id="pSkills" class="empty-note">Your professional skills will appear here.</p>
-      </section>
-
-      <section class="cv-section">
-        <h3>Languages</h3>
-        <p id="pLanguages" class="empty-note">Your languages will appear here.</p>
-      </section>
-
-      <section class="cv-section" id="certSection">
-        <h3>Certifications and Training</h3>
-        <p id="pCertifications"></p>
-      </section>
-
-      <section class="cv-section" id="additionalSection">
-        <h3>Additional Information</h3>
-        <p id="pAdditional"></p>
-      </section>
-
-    </div>
-  </section>
-
+<section class="panel preview-panel">
+<div class="preview-top"><h2>Live CV Preview</h2><button type="button" class="download" id="previewDownloadButton">Save as PDF</button></div>
+<div class="paper template-ats" id="cvPreview">
+<div class="cv-header"><h1 class="cv-name" id="pName">Your Name</h1><div class="cv-job" id="pJob">Your Professional Title</div><div class="cv-contact" id="pContact">Email · Phone · Location</div></div>
+<div id="standardLayout">
+<section class="cv-section" id="summarySection"><h3>Professional Summary</h3><p id="pSummary" class="empty-note">Your professional summary will appear here.</p></section>
+<section class="cv-section" id="experienceSection"><h3>Work Experience</h3><div id="pExperience"><p class="empty-note">Your work experience will appear here.</p></div></section>
+<section class="cv-section" id="educationSection"><h3>Education</h3><div id="pEducation"><p class="empty-note">Your education will appear here.</p></div></section>
+<section class="cv-section" id="skillsSection"><h3>Skills</h3><div id="pSkills"><p class="empty-note">Your professional skills will appear here.</p></div></section>
+<section class="cv-section" id="languagesSection"><h3>Languages</h3><div id="pLanguages"><p class="empty-note">Your languages will appear here.</p></div></section>
+<section class="cv-section" id="certificationsSection"><h3>Certifications and Training</h3><div id="pCertifications"></div></section>
+<section class="cv-section" id="additionalSection"><h3>Additional Information</h3><p id="pAdditional"></p></section>
+</div>
+</div>
+</section>
 </main>
-
-<footer>
-  <strong>FreeCV Maker</strong>
-  <p>Create your professional CV without paying anything.</p>
-  <p>
-    No subscription · No registration · No watermark
-  </p>
-  <p>© 2026 FreeCV Maker. All rights reserved.</p>
-</footer>
+<footer><strong>FreeCV Maker</strong><p>Create your professional CV without paying anything.</p><p>No subscription · No registration · No watermark</p><p>© 2026 FreeCV Maker. All rights reserved.</p></footer>
 
 <script>
-  const fields = [
-    "fullName",
-    "jobTitle",
-    "email",
-    "phone",
-    "location",
-    "linkedin",
-    "summary",
-    "experience",
-    "education",
-    "skills",
-    "languages",
-    "certifications",
-    "additional"
-  ];
+(function(){
+"use strict";
+const preview=document.getElementById("cvPreview");
+const listConfig={
+ experience:{container:"experienceList",fields:[["title","Job Title","e.g. Senior Engineer"],["company","Company","Company name"],["place","Location","City, Country"],["dates","Dates","Jan 2022 – Present"],["details","Responsibilities and achievements","Use one bullet point per line."]]},
+ education:{container:"educationList",fields:[["qualification","Degree / Qualification","e.g. Bachelor of Commerce"],["institution","Institution","University or college"],["year","Year","2020"],["details","Details (optional)","Major, grade or relevant coursework"]]},
+ skills:{container:"skillsList",fields:[["name","Skill","e.g. AutoCAD"]]},
+ languages:{container:"languagesList",fields:[["name","Language","e.g. English"],["level","Proficiency","e.g. Professional"]]},
+ certifications:{container:"certificationsList",fields:[["name","Certificate / Training","Course or certificate name"],["issuer","Issuing Organization","Organization"],["year","Year (optional)","2024"]]}
+};
+const counts={experience:0,education:0,skills:0,languages:0,certifications:0};
+let currentTemplate="ats";
 
-  function getValue(id) {
-    return document.getElementById(id).value.trim();
-  }
-
-  function setText(id, value, placeholder) {
-    const element = document.getElementById(id);
-    element.textContent = value || placeholder;
-    element.classList.toggle("empty-note", !value);
-  }
-
-  function updateCV() {
-    const name = getValue("fullName");
-
-    setText("pName", name, "Your Name");
-    setText("pJob", getValue("jobTitle"), "Your Professional Title");
-
-    const contact = [
-      getValue("email"),
-      getValue("phone"),
-      getValue("location"),
-      getValue("linkedin")
-    ].filter(Boolean);
-
-    setText(
-      "pContact",
-      contact.join("  |  "),
-      "Email · Phone · Location"
-    );
-
-    setText(
-      "pSummary",
-      getValue("summary"),
-      "Your professional summary will appear here."
-    );
-
-    setText(
-      "pExperience",
-      getValue("experience"),
-      "Your work experience will appear here."
-    );
-
-    setText(
-      "pEducation",
-      getValue("education"),
-      "Your education will appear here."
-    );
-
-    setText(
-      "pSkills",
-      getValue("skills"),
-      "Your professional skills will appear here."
-    );
-
-    setText(
-      "pLanguages",
-      getValue("languages"),
-      "Your languages will appear here."
-    );
-
-    const certifications = getValue("certifications");
-    document.getElementById("certSection").style.display =
-      certifications ? "block" : "none";
-    setText("pCertifications", certifications, "");
-
-    const additional = getValue("additional");
-    document.getElementById("additionalSection").style.display =
-      additional ? "block" : "none";
-    setText("pAdditional", additional, "");
-  }
-
-  function downloadCV() {
-    updateCV();
-
-    if (!getValue("fullName")) {
-      alert("Please enter your full name before downloading your CV.");
-      document.getElementById("fullName").focus();
-      return;
-    }
-
-    window.print();
-  }
-
-  function resetCV() {
-    if (!confirm("Are you sure you want to clear all CV information?")) {
-      return;
-    }
-
-    document.getElementById("cvForm").reset();
-    updateCV();
-  }
-
-  fields.forEach(function(id) {
-    document.getElementById(id).addEventListener("input", updateCV);
-  });
-
-  updateCV();
+function makeField(section,index,field){
+ const wrap=document.createElement("div");wrap.className="field";
+ const label=document.createElement("label");const id=section+"-"+index+"-"+field[0];label.htmlFor=id;label.textContent=field[1];
+ let input;
+ if(field[0]==="details" && section==="experience"){input=document.createElement("textarea");input.style.minHeight="90px";}
+ else{input=document.createElement("input");input.type="text";}
+ input.id=id;input.dataset.section=section;input.dataset.index=String(index);input.dataset.field=field[0];input.placeholder=field[2];
+ wrap.append(label,input);return wrap;
+}
+function addEntry(section,values={}){
+ const config=listConfig[section];const index=counts[section]++;
+ const card=document.createElement("div");card.className="entry-card";card.dataset.entry=section;card.dataset.index=String(index);
+ const head=document.createElement("div");head.className="entry-head";
+ const title=document.createElement("strong");title.textContent=(section==="experience"?"Job":section==="education"?"Education":section==="skills"?"Skill":section==="languages"?"Language":"Certification")+" "+(index+1);
+ const remove=document.createElement("button");remove.type="button";remove.className="remove-btn";remove.textContent="Remove";remove.addEventListener("click",()=>{card.remove();updateCV();});
+ head.append(title,remove);card.append(head);
+ config.fields.forEach(field=>{const f=makeField(section,index,field);card.append(f);const input=f.querySelector("input,textarea");if(values[field[0]])input.value=values[field[0]];});
+ document.getElementById(config.container).append(card);updateCV();
+}
+function getEntries(section){
+ return Array.from(document.querySelectorAll('#'+listConfig[section].container+' .entry-card')).map(card=>{
+  const item={};card.querySelectorAll("input,textarea").forEach(input=>item[input.dataset.field]=input.value.trim());return item;
+ }).filter(item=>Object.values(item).some(Boolean));
+}
+function el(tag,className,text){
+ const node=document.createElement(tag);if(className)node.className=className;if(text!==undefined)node.textContent=text;return node;
+}
+function setSectionVisible(id,visible){document.getElementById(id).style.display=visible?"":"none";}
+function addPreviewEntry(parent,title,meta,details){
+ const item=el("div","cv-entry");if(title)item.append(el("strong","",title));if(meta)item.append(el("small","",meta));if(details)item.append(el("div","details",details));parent.append(item);
+}
+function renderEntries(section,targetId,emptyText){
+ const target=document.getElementById(targetId);target.replaceChildren();
+ const entries=getEntries(section);
+ if(!entries.length){target.append(el("p","empty-note",emptyText));return 0;}
+ entries.forEach(item=>{
+  if(section==="experience")addPreviewEntry(target,item.title,item.company?[item.company,item.place,item.dates].filter(Boolean).join(" · "):[item.place,item.dates].filter(Boolean).join(" · "),item.details);
+  if(section==="education")addPreviewEntry(target,item.qualification,item.institution?[item.institution,item.year].filter(Boolean).join(" · "):item.year,item.details);
+  if(section==="certifications")addPreviewEntry(target,item.name,[item.issuer,item.year].filter(Boolean).join(" · "),"");
+ });
+ return entries.length;
+}
+function updateCV(){
+ const get=id=>document.getElementById(id).value.trim();
+ document.getElementById("pName").textContent=get("fullName")||"Your Name";
+ document.getElementById("pJob").textContent=get("jobTitle")||"Your Professional Title";
+ const contact=[get("email"),get("phone"),get("location"),get("linkedin")].filter(Boolean);
+ document.getElementById("pContact").textContent=contact.join("  |  ")||"Email · Phone · Location";
+ const summary=get("summary");document.getElementById("pSummary").textContent=summary||"Your professional summary will appear here.";document.getElementById("pSummary").classList.toggle("empty-note",!summary);
+ setSectionVisible("summarySection",!!summary);
+ setSectionVisible("experienceSection",renderEntries("experience","pExperience","Your work experience will appear here.")>0);
+ setSectionVisible("educationSection",renderEntries("education","pEducation","Your education will appear here.")>0);
+ const skills=getEntries("skills").map(x=>x.name).filter(Boolean);const skillTarget=document.getElementById("pSkills");skillTarget.replaceChildren();
+ skills.forEach(skill=>skillTarget.append(el("span","skill-item",skill)));
+ if(!skills.length)skillTarget.append(el("p","empty-note","Your professional skills will appear here."));
+ setSectionVisible("skillsSection",skills.length>0);
+ const languages=getEntries("languages");const languageTarget=document.getElementById("pLanguages");languageTarget.replaceChildren();
+ languages.forEach(x=>addPreviewEntry(languageTarget,x.name,x.level,""));
+ if(!languages.length)languageTarget.append(el("p","empty-note","Your languages will appear here."));
+ setSectionVisible("languagesSection",languages.length>0);
+ setSectionVisible("certificationsSection",renderEntries("certifications","pCertifications","")>0);
+ const additional=get("additional");document.getElementById("pAdditional").textContent=additional;setSectionVisible("additionalSection",!!additional);
+ preview.className="paper template-"+currentTemplate;
+}
+function downloadCV(){
+ updateCV();
+ if(!document.getElementById("fullName").value.trim()){alert("Please enter your full name before downloading your CV.");document.getElementById("fullName").focus();return;}
+ window.print();
+}
+function resetCV(){
+ if(!confirm("Are you sure you want to clear all CV information?"))return;
+ document.getElementById("cvForm").reset();
+ Object.keys(listConfig).forEach(section=>document.getElementById(listConfig[section].container).replaceChildren());
+ Object.keys(counts).forEach(section=>counts[section]=0);
+ ["experience","education","skills","languages","certifications"].forEach(section=>addEntry(section));
+ chooseTemplate("ats");updateCV();
+}
+function chooseTemplate(template){
+ currentTemplate=template;
+ document.querySelectorAll(".template-option").forEach(button=>button.classList.toggle("active",button.dataset.template===template));
+ updateCV();
+}
+document.querySelectorAll("[data-add]").forEach(button=>button.addEventListener("click",()=>addEntry(button.dataset.add)));
+document.querySelectorAll(".template-option").forEach(button=>button.addEventListener("click",()=>chooseTemplate(button.dataset.template)));
+document.getElementById("cvForm").addEventListener("input",updateCV);
+document.getElementById("updateButton").addEventListener("click",updateCV);
+document.getElementById("downloadButton").addEventListener("click",downloadCV);
+document.getElementById("previewDownloadButton").addEventListener("click",downloadCV);
+document.getElementById("clearButton").addEventListener("click",resetCV);
+["experience","education","skills","languages","certifications"].forEach(section=>addEntry(section));
+updateCV();
+})();
 </script>
-
 </body>
 </html>
