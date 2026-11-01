@@ -1,43 +1,75 @@
 
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://freecv-maker.faizkhan469.workers.dev/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-11-01</lastmod>
   </url>
+
   <url>
     <loc>https://freecv-maker.faizkhan469.workers.dev/about.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-01</lastmod>
   </url>
+
   <url>
     <loc>https://freecv-maker.faizkhan469.workers.dev/privacy.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-01</lastmod>
   </url>
+
   <url>
     <loc>https://freecv-maker.faizkhan469.workers.dev/terms.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-01</lastmod>
   </url>
+
   <url>
     <loc>https://freecv-maker.faizkhan469.workers.dev/how-to-write-professional-cv.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-01</lastmod>
   </url>
+
   <url>
     <loc>https://freecv-maker.faizkhan469.workers.dev/ats-friendly-resume-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-01</lastmod>
   </url>
+
   <url>
     <loc>https://freecv-maker.faizkhan469.workers.dev/best-cv-format-for-freshers.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-01</lastmod>
   </url>
+
   <url>
     <loc>https://freecv-maker.faizkhan469.workers.dev/cv-with-no-work-experience.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-01</lastmod>
   </url>
+
+  <url>
+    <loc>https://freecv-maker.faizkhan469.workers.dev/experienced-professional-cv-guide.html</loc>
+    <lastmod>2026-11-01</lastmod>
+  </url>
+
+  <url>
+    <loc>https://freecv-maker.faizkhan469.workers.dev/cv-for-jobs-in-saudi-arabia.html</loc>
+    <lastmod>2026-11-01</lastmod>
+  </url>
+
+  <url>
+    <loc>https://freecv-maker.faizkhan469.workers.dev/how-to-write-a-professional-cover-letter.html</loc>
+    <lastmod>2026-11-01</lastmod>
+  </url>
+
+  <url>
+    <loc>https://freecv-maker.faizkhan469.workers.dev/common-cv-mistakes-to-avoid.html</loc>
+    <lastmod>2026-11-01</lastmod>
+  </url>
+
+  <url>
+    <loc>https://freecv-maker.faizkhan469.workers.dev/how-to-prepare-for-a-job-interview.html</loc>
+    <lastmod>2026-11-01</lastmod>
+  </url>
+
+  <url>
+    <loc>https://freecv-maker.faizkhan469.workers.dev/how-to-explain-employment-gaps-in-your-cv.html</loc>
+    <lastmod>2026-11-01</lastmod>
+  </url>
+
 </urlset>
