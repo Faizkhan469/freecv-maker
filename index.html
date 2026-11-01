@@ -46,6 +46,10 @@ button{border:0;border-radius:7px;padding:11px 15px;font-size:13px;font-weight:b
 .preview-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:15px}
 .preview-top h2{margin:0}.paper{background:var(--paper);color:#222;width:100%;min-height:900px;padding:38px 35px;box-shadow:0 2px 12px rgba(0,0,0,.09);border:1px solid #e3e8ef;overflow-wrap:anywhere}
 .cv-header{padding-bottom:15px;border-bottom:2px solid var(--accent,var(--navy));margin-bottom:20px}
+.cv-header-content{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
+.cv-header-text{flex:1;min-width:0}
+.cv-photo{display:none;width:105px;height:125px;object-fit:cover;border-radius:6px;border:1px solid #d6deea;flex-shrink:0}
+@media(max-width:520px){.cv-photo{width:78px;height:94px}}
 .cv-name{font-size:29px;font-weight:bold;color:var(--accent,var(--navy));margin:0 0 7px}
 .cv-job{font-size:15px;color:#53647b;margin-bottom:10px}
 .cv-contact{font-size:11px;color:#555;line-height:1.8}
@@ -115,6 +119,12 @@ footer a:hover{color:#dce9ff}
 <div class="field"><label for="location">City / Country</label><input id="location" placeholder="Riyadh, Saudi Arabia"></div>
 <div class="field"><label for="linkedin">LinkedIn Profile</label><input id="linkedin" placeholder="linkedin.com/in/yourname"></div>
 </div>
+<div class="field">
+<label for="photoUpload">Profile Photo (Optional)</label>
+<input id="photoUpload" type="file" accept="image/jpeg,image/png,image/webp">
+<div class="hint">Optional. JPG, PNG or WebP; maximum file size 5 MB. Your photo stays in your browser and is not uploaded to our server.</div>
+<button type="button" class="secondary" id="removePhotoButton" style="margin-top:8px;display:none">Remove Photo</button>
+</div>
 
 <div class="section-heading">2. Professional Summary</div>
 <div class="field"><label for="summary">About Yourself</label><textarea id="summary" placeholder="Write a short professional introduction highlighting your experience, skills and career achievements."></textarea><div class="hint">Keep your summary clear, professional and relevant to the job.</div></div>
@@ -153,7 +163,7 @@ footer a:hover{color:#dce9ff}
 <section class="panel preview-panel">
 <div class="preview-top"><h2>Live CV Preview</h2><button type="button" class="download" id="previewDownloadButton">Save as PDF</button></div>
 <div class="paper template-ats" id="cvPreview">
-<div class="cv-header"><h1 class="cv-name" id="pName">Your Name</h1><div class="cv-job" id="pJob">Your Professional Title</div><div class="cv-contact" id="pContact">Email · Phone · Location</div></div>
+<div class="cv-header"><div class="cv-header-content"><div class="cv-header-text"><h1 class="cv-name" id="pName">Your Name</h1><div class="cv-job" id="pJob">Your Professional Title</div><div class="cv-contact" id="pContact">Email · Phone · Location</div></div><img class="cv-photo" id="pPhoto" alt="Profile photo"></div></div>
 <div id="standardLayout">
 <section class="cv-section" id="summarySection"><h3>Professional Summary</h3><p id="pSummary" class="empty-note">Your professional summary will appear here.</p></section>
 <section class="cv-section" id="experienceSection"><h3>Work Experience</h3><div id="pExperience"><p class="empty-note">Your work experience will appear here.</p></div></section>
@@ -183,6 +193,10 @@ footer a:hover{color:#dce9ff}
 (function(){
 "use strict";
 const preview=document.getElementById("cvPreview");
+const photoUpload=document.getElementById("photoUpload");
+const photoPreview=document.getElementById("pPhoto");
+const removePhotoButton=document.getElementById("removePhotoButton");
+let photoDataUrl="";
 const listConfig={
  experience:{container:"experienceList",fields:[["title","Job Title","e.g. Senior Engineer"],["company","Company","Company name"],["place","Location","City, Country"],["dates","Dates","Jan 2022 – Present"],["details","Responsibilities and achievements","Use one bullet point per line."]]},
  education:{container:"educationList",fields:[["qualification","Degree / Qualification","e.g. Bachelor of Commerce"],["institution","Institution","University or college"],["year","Year","2020"],["details","Details (optional)","Major, grade or relevant coursework"]]},
@@ -241,6 +255,8 @@ function updateCV(){
  document.getElementById("pJob").textContent=get("jobTitle")||"Your Professional Title";
  const contact=[get("email"),get("phone"),get("location"),get("linkedin")].filter(Boolean);
  document.getElementById("pContact").textContent=contact.join("  |  ")||"Email · Phone · Location";
+  if(photoDataUrl){photoPreview.src=photoDataUrl;photoPreview.style.display="block";removePhotoButton.style.display="inline-block";}
+  else{photoPreview.removeAttribute("src");photoPreview.style.display="none";removePhotoButton.style.display="none";}
  const summary=get("summary");document.getElementById("pSummary").textContent=summary||"Your professional summary will appear here.";document.getElementById("pSummary").classList.toggle("empty-note",!summary);
  setSectionVisible("summarySection",!!summary);
  setSectionVisible("experienceSection",renderEntries("experience","pExperience","Your work experience will appear here.")>0);
@@ -265,6 +281,7 @@ function downloadCV(){
 function resetCV(){
  if(!confirm("Are you sure you want to clear all CV information?"))return;
  document.getElementById("cvForm").reset();
+  photoDataUrl="";photoPreview.removeAttribute("src");photoUpload.value="";
  Object.keys(listConfig).forEach(section=>document.getElementById(listConfig[section].container).replaceChildren());
  Object.keys(counts).forEach(section=>counts[section]=0);
  ["experience","education","skills","languages","certifications"].forEach(section=>addEntry(section));
@@ -282,6 +299,18 @@ document.getElementById("updateButton").addEventListener("click",updateCV);
 document.getElementById("downloadButton").addEventListener("click",downloadCV);
 document.getElementById("previewDownloadButton").addEventListener("click",downloadCV);
 document.getElementById("clearButton").addEventListener("click",resetCV);
+photoUpload.addEventListener("change",()=>{
+ const file=photoUpload.files && photoUpload.files[0];
+ if(!file)return;
+ const allowedTypes=["image/jpeg","image/png","image/webp"];
+ if(!allowedTypes.includes(file.type)){alert("Please choose a JPG, PNG or WebP image.");photoUpload.value="";return;}
+ if(file.size>5*1024*1024){alert("Please choose an image smaller than 5 MB.");photoUpload.value="";return;}
+ const reader=new FileReader();
+ reader.onload=()=>{photoDataUrl=String(reader.result||"");updateCV();};
+ reader.onerror=()=>{alert("The photo could not be read. Please try another image.");photoUpload.value="";};
+ reader.readAsDataURL(file);
+});
+removePhotoButton.addEventListener("click",()=>{photoDataUrl="";photoUpload.value="";updateCV();});
 ["experience","education","skills","languages","certifications"].forEach(section=>addEntry(section));
 updateCV();
 })();
