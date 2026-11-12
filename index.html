@@ -114,6 +114,44 @@ footer a:hover{color:#dce9ff}
 #cvPreview.template-european .cv-job{font-size:14px;letter-spacing:.5px;text-transform:uppercase;color:#52766b}
 #cvPreview.template-european .cv-section h3{color:#315b52;border-bottom:1px solid #c6d6d0;letter-spacing:1.2px}
 #cvPreview.template-european .cv-photo{border-radius:50%;width:98px;height:98px}
+
+.color-controls input[type="color"]{height:43px;padding:4px;cursor:pointer}
+#cvPreview{--custom-accent:#b45d60;--custom-sidebar:#7e252d;--photo-radius:50%}
+#cvPreview .cv-name{color:var(--custom-accent)}
+#cvPreview .cv-section h3{color:var(--custom-accent);border-color:var(--custom-accent)}
+#cvPreview.template-gradient .cv-header{background:linear-gradient(120deg,color-mix(in srgb,var(--custom-accent) 16%,white),#fff);border:0;border-radius:12px;padding:22px;margin:-8px -8px 18px}
+#cvPreview.template-gradient .cv-section h3{border-bottom:2px solid var(--custom-accent)}
+#cvPreview.template-compact{padding:27px 30px}
+#cvPreview.template-compact .cv-header{padding-bottom:9px;margin-bottom:12px}
+#cvPreview.template-compact .cv-name{font-size:25px}
+#cvPreview.template-compact .cv-section{margin-top:13px}
+#cvPreview.template-compact .cv-entry{margin-bottom:8px}
+#cvPreview.template-compact .cv-section h3{font-size:12px;padding-bottom:4px}
+#cvPreview.template-corporate .cv-header{border-left:7px solid var(--custom-accent);padding:5px 0 14px 17px}
+#cvPreview.template-corporate .cv-section h3{background:var(--custom-accent);color:#fff;border:0;padding:7px 10px}
+#cvPreview.template-corporate .skill-item{border-color:var(--custom-accent);border-radius:15px}
+#cvPreview.template-burgundy{display:grid;grid-template-columns:34% 66%;padding:0;min-height:900px;background:#fff;--accent:var(--custom-accent)}
+#cvPreview.template-burgundy .cv-header{display:contents}
+#cvPreview.template-burgundy .cv-header-content{display:contents}
+#cvPreview.template-burgundy .cv-header-text{grid-column:2;grid-row:1;padding:36px 28px 12px}
+#cvPreview.template-burgundy .cv-photo{display:block;grid-column:1;grid-row:1;justify-self:center;align-self:start;margin-top:25px;width:88px;height:88px;border-radius:var(--photo-radius);border:3px solid #fff}
+#cvPreview.template-burgundy .cv-contact{display:none}
+#cvPreview.template-burgundy .cv-name{font-size:27px;color:#222;letter-spacing:.2px}
+#cvPreview.template-burgundy .cv-job{font-size:12px;text-transform:uppercase;letter-spacing:.7px}
+#cvPreview.template-burgundy #standardLayout{display:none}
+#cvPreview.template-burgundy #sidebarLayout{display:block!important;grid-column:1;grid-row:2;background:var(--custom-sidebar);color:#fff;padding:15px 17px 30px;min-height:700px}
+#cvPreview.template-burgundy #mainSidebarContent{display:block!important;grid-column:2;grid-row:2;padding:0 28px 35px}
+#cvPreview.template-burgundy .sidebar-title{font-size:11px;text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:7px;margin:20px 0 9px;color:#fff}
+#cvPreview.template-burgundy .sidebar-contact{font-size:10px;line-height:1.8;overflow-wrap:anywhere;color:#fff}
+#cvPreview.template-burgundy .sidebar-contact div,#cvPreview.template-burgundy .sidebar-skill{margin:5px 0}
+#cvPreview.template-burgundy .sidebar-skill{font-size:10px;line-height:1.6;color:#fff}
+#cvPreview.template-burgundy .sidebar-skill:before{content:'• ';color:#f3c7c9}
+#cvPreview.template-burgundy .cv-section{margin-top:19px}
+#cvPreview.template-burgundy .cv-section h3{background:var(--custom-accent);color:#fff;border:0;padding:7px 10px;font-size:12px;letter-spacing:.4px}
+#cvPreview.template-burgundy .cv-entry{position:relative;padding-left:12px;border-left:1px solid var(--custom-accent)}
+#cvPreview.template-burgundy .cv-entry:before{content:'';position:absolute;left:-4px;top:3px;width:7px;height:7px;border-radius:50%;background:var(--custom-accent)}
+@media(max-width:600px){#cvPreview.template-burgundy{grid-template-columns:34% 66%}#cvPreview.template-burgundy .cv-header-text{padding:22px 12px 8px}#cvPreview.template-burgundy #sidebarLayout{padding:10px}#cvPreview.template-burgundy #mainSidebarContent{padding:0 12px 22px}#cvPreview.template-burgundy .cv-name{font-size:19px}#cvPreview.template-burgundy .cv-photo{width:65px;height:65px}}
+
 @media(max-width:600px){
  #cvPreview.template-two-column #standardLayout,#cvPreview.template-elegant #standardLayout{display:block}
  #cvPreview.template-creative .cv-header{margin:0 0 18px;padding:16px}
@@ -135,7 +173,7 @@ footer a:hover{color:#dce9ff}
 <header><div class="header-inner"><div class="logo">📄 FreeCV Maker</div><div class="header-tag">Your career. Your CV. Completely free.</div></div></header>
 <section class="hero">
 <h1>Create Your Professional CV for Free</h1>
-<p>Build a professional, ATS-friendly resume in minutes. Enter your details, preview your CV and save it as a PDF. No registration and no payment required.</p>
+<p>Build a professional, ATS-friendly resume in minutes. Enter your details, customize your design and download your CV as PDF or editable Word. No registration and no payment required.</p>
 <div class="free-label">✓ 100% FREE · No watermark · No subscription</div>
 </section>
 
@@ -145,7 +183,7 @@ footer a:hover{color:#dce9ff}
 <p class="panel-intro">Complete the fields below. Your CV preview updates automatically. Leave optional fields blank.</p>
 <form id="cvForm">
 <div class="section-heading">Choose a CV Template</div>
-<div class="field"><label for="templateSearch">Find a template</label><input id="templateSearch" type="search" placeholder="Search ATS, modern, executive, creative..."><div class="hint">Search the 10 free templates by name or style.</div></div>
+<div class="field"><label for="templateSearch">Find a template</label><input id="templateSearch" type="search" placeholder="Search ATS, modern, executive, creative..."><div class="hint">Search all 14 free templates by name or style.</div></div>
 <div class="template-grid" id="templateChoices">
 <button type="button" class="template-option active" data-template="ats">Professional ATS<span>Clean single-column layout; best starting point for ATS.</span></button>
 <button type="button" class="template-option" data-template="modern">Modern Blue<span>Contemporary blue headings and accents.</span></button>
@@ -157,7 +195,14 @@ footer a:hover{color:#dce9ff}
 <button type="button" class="template-option" data-template="creative">Creative Modern<span>Fresh colour accents and a distinctive personal profile.</span></button>
 <button type="button" class="template-option" data-template="tech">Tech Professional<span>Modern teal accents for technical and digital careers.</span></button>
 <button type="button" class="template-option" data-template="european">European Modern<span>Clean European-inspired layout with a polished profile.</span></button>
+<button type="button" class="template-option" data-template="burgundy">Burgundy Sidebar<span>Two-column CV inspired by your example, with a photo and coloured sidebar.</span></button>
+<button type="button" class="template-option" data-template="gradient">Modern Gradient<span>Contemporary profile header with a soft colour gradient.</span></button>
+<button type="button" class="template-option" data-template="compact">Compact Professional<span>Space-efficient layout for a concise one- or two-page CV.</span></button>
+<button type="button" class="template-option" data-template="corporate">Bold Corporate<span>Strong section bars and clear hierarchy for business roles.</span></button>
 </div>
+<div class="section-heading">Customize Your Design</div>
+<div class="two-columns color-controls"><div class="field"><label for="accentColor">Heading & accent colour</label><input id="accentColor" type="color" value="#b45d60"></div><div class="field"><label for="sidebarColor">Sidebar colour</label><input id="sidebarColor" type="color" value="#7e252d"></div></div>
+<div class="field"><label for="photoShape">Profile photo shape</label><select id="photoShape"><option value="circle">Circle</option><option value="square">Square</option></select><div class="hint">Your chosen colours and photo shape update the preview immediately.</div></div>
 
 <div class="section-heading">1. Personal Information</div>
 <div class="field"><label for="fullName">Full Name *</label><input id="fullName" autocomplete="name" placeholder="e.g. John Smith"></div>
@@ -216,6 +261,8 @@ footer a:hover{color:#dce9ff}
 <div class="preview-top"><h2>Live CV Preview</h2><div class="actions" style="margin:0"><button type="button" class="download" id="previewDownloadButton">Save as PDF</button><button type="button" class="primary" id="previewWordDownloadButton">Save as Word</button></div></div>
 <div class="paper template-ats" id="cvPreview">
 <div class="cv-header"><div class="cv-header-content"><div class="cv-header-text"><h1 class="cv-name" id="pName">Your Name</h1><div class="cv-job" id="pJob">Your Professional Title</div><div class="cv-contact" id="pContact">Email · Phone · Location</div></div><img class="cv-photo" id="pPhoto" alt="Profile photo"></div></div>
+<div id="sidebarLayout" style="display:none"><div class="sidebar-title">Contact</div><div class="sidebar-contact" id="sidebarContact"></div><div class="sidebar-title">Skills & Expertise</div><div id="sidebarSkills"></div><div class="sidebar-title">Languages</div><div id="sidebarLanguages"></div><div class="sidebar-title">Additional</div><div id="sidebarAdditional" class="sidebar-contact"></div></div>
+<div id="mainSidebarContent" style="display:none"><section class="cv-section" id="sidebarSummarySection"><h3>Professional Summary</h3><p id="sidebarSummary"></p></section><section class="cv-section" id="sidebarExperienceSection"><h3>Work Experience</h3><div id="sidebarExperience"></div></section><section class="cv-section" id="sidebarEducationSection"><h3>Education</h3><div id="sidebarEducation"></div></section><section class="cv-section" id="sidebarCertificationsSection"><h3>Certifications & Training</h3><div id="sidebarCertifications"></div></section></div>
 <div id="standardLayout">
 <section class="cv-section" id="summarySection"><h3>Professional Summary</h3><p id="pSummary" class="empty-note">Your professional summary will appear here.</p></section>
 <section class="cv-section" id="experienceSection"><h3>Work Experience</h3><div id="pExperience"><p class="empty-note">Your work experience will appear here.</p></div></section>
@@ -302,6 +349,20 @@ function renderEntries(section,targetId,emptyText){
  });
  return entries.length;
 }
+function renderSidebarTemplate(){
+ const get=id=>document.getElementById(id).value.trim();
+ const contact=[get("email"),get("phone"),get("location"),get("linkedin")].filter(Boolean);
+ const ct=document.getElementById("sidebarContact");ct.replaceChildren();contact.forEach(v=>ct.append(el("div","",v)));if(!contact.length)ct.append(el("div","","Add contact details"));
+ const skills=getEntries("skills").map(x=>x.name).filter(Boolean),st=document.getElementById("sidebarSkills");st.replaceChildren();skills.forEach(v=>st.append(el("div","sidebar-skill",v)));if(!skills.length)st.append(el("div","sidebar-contact","Add skills"));
+ const langs=getEntries("languages"),lt=document.getElementById("sidebarLanguages");lt.replaceChildren();langs.forEach(x=>lt.append(el("div","sidebar-skill",[x.name,x.level].filter(Boolean).join(" — "))));if(!langs.length)lt.append(el("div","sidebar-contact","Add languages"));
+ document.getElementById("sidebarAdditional").textContent=get("additional");
+ const summary=get("summary");document.getElementById("sidebarSummary").textContent=summary;document.getElementById("sidebarSummarySection").style.display=summary?"":"none";
+ const exp=getEntries("experience"),edu=getEntries("education"),cert=getEntries("certifications");
+ const render=(items,target,kind)=>{target.replaceChildren();items.forEach(x=>{if(kind==="experience")addPreviewEntry(target,x.title,[x.company,x.place,x.dates].filter(Boolean).join(" · "),x.details);if(kind==="education")addPreviewEntry(target,x.qualification,[x.institution,x.year].filter(Boolean).join(" · "),x.details);if(kind==="certifications")addPreviewEntry(target,x.name,[x.issuer,x.year].filter(Boolean).join(" · "),"");});};
+ render(exp,document.getElementById("sidebarExperience"),"experience");render(edu,document.getElementById("sidebarEducation"),"education");render(cert,document.getElementById("sidebarCertifications"),"certifications");
+ document.getElementById("sidebarExperienceSection").style.display=exp.length?"":"none";document.getElementById("sidebarEducationSection").style.display=edu.length?"":"none";document.getElementById("sidebarCertificationsSection").style.display=cert.length?"":"none";
+}
+function applyDesignOptions(){preview.style.setProperty("--custom-accent",document.getElementById("accentColor").value);preview.style.setProperty("--custom-sidebar",document.getElementById("sidebarColor").value);preview.style.setProperty("--photo-radius",document.getElementById("photoShape").value==="circle"?"50%":"7px");}
 function updateCV(){
  const get=id=>document.getElementById(id).value.trim();
  document.getElementById("pName").textContent=get("fullName")||"Your Name";
@@ -325,6 +386,7 @@ function updateCV(){
  setSectionVisible("certificationsSection",renderEntries("certifications","pCertifications","")>0);
  const additional=get("additional");document.getElementById("pAdditional").textContent=additional;setSectionVisible("additionalSection",!!additional);
  preview.className="paper template-"+currentTemplate;
+ const sidebar=currentTemplate==="burgundy";document.getElementById("sidebarLayout").style.display=sidebar?"block":"none";document.getElementById("mainSidebarContent").style.display=sidebar?"block":"none";if(sidebar)renderSidebarTemplate();applyDesignOptions();
 }
 function downloadCV(){
  updateCV();
@@ -358,7 +420,8 @@ function downloadWord(){
  const documentXml='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'+
  '<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>'+paragraphs.join("")+ 
  '<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="900" w:right="900" w:bottom="900" w:left="900" w:header="500" w:footer="500" w:gutter="0"/></w:sectPr></w:body></w:document>';
- const stylesXml='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/><w:rPr><w:sz w:val="21"/><w:szCs w:val="21"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Title"><w:name w:val="Title"/><w:basedOn w:val="Normal"/><w:rPr><w:b/><w:sz w:val="34"/><w:color w:val="173B70"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Subtitle"><w:name w:val="Subtitle"/><w:basedOn w:val="Normal"/><w:rPr><w:sz w:val="24"/><w:color w:val="52647A"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Heading1"><w:name w:val="heading 1"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:pPr><w:keepNext/><w:spacing w:before="260" w:after="100"/></w:pPr><w:rPr><w:b/><w:sz w:val="25"/><w:color w:val="1764BD"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Heading2"><w:name w:val="heading 2"/><w:basedOn w:val="Normal"/><w:rPr><w:b/><w:sz w:val="22"/></w:rPr></w:style></w:styles>';
+ const wordAccent=document.getElementById("accentColor").value.slice(1).toUpperCase();
+ const stylesXml='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/><w:rPr><w:sz w:val="21"/><w:szCs w:val="21"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Title"><w:name w:val="Title"/><w:basedOn w:val="Normal"/><w:rPr><w:b/><w:sz w:val="34"/><w:color w:val="173B70"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Subtitle"><w:name w:val="Subtitle"/><w:basedOn w:val="Normal"/><w:rPr><w:sz w:val="24"/><w:color w:val="52647A"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Heading1"><w:name w:val="heading 1"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:pPr><w:keepNext/><w:spacing w:before="260" w:after="100"/></w:pPr><w:rPr><w:b/><w:sz w:val="25"/><w:color w:val="'+wordAccent+'"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Heading2"><w:name w:val="heading 2"/><w:basedOn w:val="Normal"/><w:rPr><w:b/><w:sz w:val="22"/></w:rPr></w:style></w:styles>';
  const zip=new JSZip();
  zip.file("[Content_Types].xml",'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/></Types>');
  zip.folder("_rels").file(".rels",'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>');
@@ -391,6 +454,7 @@ document.getElementById("previewDownloadButton").addEventListener("click",downlo
 document.getElementById("wordDownloadButton").addEventListener("click",downloadWord);
 document.getElementById("previewWordDownloadButton").addEventListener("click",downloadWord);
 document.getElementById("templateSearch").addEventListener("input",event=>{const query=event.target.value.trim().toLowerCase();document.querySelectorAll(".template-option").forEach(button=>{button.hidden=!button.textContent.toLowerCase().includes(query)||!button.dataset.template;});});
+["accentColor","sidebarColor","photoShape"].forEach(id=>document.getElementById(id).addEventListener("input",()=>{applyDesignOptions();updateCV();}));
 document.getElementById("clearButton").addEventListener("click",resetCV);
 photoUpload.addEventListener("change",()=>{
  const file=photoUpload.files && photoUpload.files[0];
