@@ -5,54 +5,9 @@
 <meta name="google-site-verification" content="tjckfLViu_F3oRGdDwCWrCLbEFbVDU8QTD_poUMvpDs" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>FreeCV Maker - Free Online CV and Resume Builder</title>
-<meta name="description" content="Create a professional ATS-friendly CV online for free with FreeCV Maker. Build, preview and download your resume as PDF. No registration, payment or watermark.">
-<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="description" content="Create a professional ATS-friendly CV online for free. Build, preview and download your resume as editable Word DOCX or PDF. No registration or payment required.">
 <meta name="theme-color" content="#173b70">
-<link rel="canonical" href="https://freecv-maker.faizkhan469.workers.dev/">
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="FreeCV Maker - Free Online CV and Resume Builder">
-<meta property="og:description" content="Build a professional ATS-friendly CV online for free. Create, preview and download your resume as PDF. No registration or payment required.">
-<meta property="og:url" content="https://freecv-maker.faizkhan469.workers.dev/">
-<meta property="og:site_name" content="FreeCV Maker">
-
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FreeCV Maker - Free Online CV and Resume Builder">
-<meta name="twitter:description" content="Create your professional ATS-friendly CV for free. No registration, payment or watermark.">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://freecv-maker.faizkhan469.workers.dev/#website",
-      "url": "https://freecv-maker.faizkhan469.workers.dev/",
-      "name": "FreeCV Maker",
-      "description": "Free online CV and resume builder for creating professional ATS-friendly resumes.",
-      "inLanguage": "en"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "@id": "https://freecv-maker.faizkhan469.workers.dev/#application",
-      "name": "FreeCV Maker",
-      "url": "https://freecv-maker.faizkhan469.workers.dev/",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Any",
-      "description": "A free browser-based CV and resume builder. Create professional ATS-friendly CVs, preview them and save them as PDF without registration or payment.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "isAccessibleForFree": true
-    }
-  ]
-}
-</script>
-
+<title>FreeCV Maker - Free Online CV and Resume Builder</title>
 <style>
 :root{--navy:#173b70;--blue:#1764bd;--ink:#26354a;--muted:#64748b;--line:#e2e8f0;--paper:#fff}
 *{box-sizing:border-box}
@@ -107,30 +62,6 @@ button{border:0;border-radius:7px;padding:11px 15px;font-size:13px;font-weight:b
 footer{background:var(--navy);color:#fff;text-align:center;padding:25px 15px;font-size:13px;line-height:1.8}
 footer a{color:#fff;text-decoration:underline;margin:0 8px}
 footer a:hover{color:#dce9ff}
-.footer-guides{max-width:900px;margin:12px auto}
-
-/* Helpful CV guide section */
-.seo-content{max-width:1100px;margin:0 auto 50px;padding:0 18px}
-.guide-panel{background:#fff;border:1px solid #e4eaf2;border-radius:13px;padding:30px;box-shadow:0 3px 15px rgba(20,50,90,.05)}
-.guide-panel h2{font-size:25px;color:var(--navy);margin:0 0 15px}
-.guide-panel h3{font-size:18px;color:var(--navy);margin:27px 0 10px}
-.guide-panel p,.guide-panel li{font-size:15px;line-height:1.8;color:#53647b}
-.guide-panel ul,.guide-panel ol{padding-left:23px}
-.guide-panel a{color:#1764bd;font-weight:600}
-.guide-panel a:hover{text-decoration:none}
-.guide-intro{font-size:15px;line-height:1.8;color:#53647b}
-.guide-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:20px 0}
-.guide-step{background:#f7f9fc;border:1px solid #e5eaf1;border-radius:9px;padding:16px}
-.guide-step h3{margin:0 0 7px;font-size:16px}
-.guide-step p{margin:0;font-size:13px;line-height:1.7}
-.guide-callout{background:#edf6ff;border-left:4px solid #1764bd;padding:15px 18px;margin:22px 0;border-radius:5px}
-.guide-callout p{margin:0}
-.faq-item{border-bottom:1px solid #e5eaf1;padding:15px 0}
-.faq-item:last-child{border-bottom:0}
-.faq-item h3{font-size:16px;margin:0 0 7px}
-.faq-item p{margin:0}
-.guide-cta{display:inline-block;background:#1764bd;color:#fff!important;text-decoration:none;padding:12px 18px;border-radius:7px;margin-top:12px}
-.guide-cta:hover{background:#104d96}
 #cvPreview{--accent:#173b70}
 #cvPreview.template-modern{--accent:#1764bd}
 #cvPreview.template-executive{--accent:#26354a}
@@ -143,12 +74,56 @@ footer a:hover{color:#dce9ff}
 #cvPreview.template-executive .executive-layout{display:grid;grid-template-columns:1.65fr 1fr;gap:24px}
 #cvPreview.template-executive .side-column{border-left:1px solid #d8dee8;padding-left:18px}
 #cvPreview.template-executive .side-column .cv-section{margin-top:16px}
+/* Additional modern CV designs */
+#cvPreview.template-minimalist{--accent:#202020;font-family:Arial,Helvetica,sans-serif}
+#cvPreview.template-minimalist .cv-header{border-bottom:1px solid #333;padding-bottom:12px}
+#cvPreview.template-minimalist .cv-name{font-size:27px;letter-spacing:.2px;color:#171717}
+#cvPreview.template-minimalist .cv-section h3{color:#222;border-bottom:1px solid #777;letter-spacing:.8px}
+#cvPreview.template-minimalist .skill-item{border:0;border-radius:0;padding:2px 8px 2px 0}
+#cvPreview.template-two-column,#cvPreview.template-elegant{--accent:#17608a}
+#cvPreview.template-two-column #standardLayout,#cvPreview.template-elegant #standardLayout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(130px,1fr);grid-template-areas:"summary summary" "experience skills" "experience languages" "education additional" "certifications certifications";column-gap:23px;row-gap:0}
+#cvPreview.template-two-column #summarySection,#cvPreview.template-elegant #summarySection{grid-area:summary}
+#cvPreview.template-two-column #experienceSection,#cvPreview.template-elegant #experienceSection{grid-area:experience}
+#cvPreview.template-two-column #educationSection,#cvPreview.template-elegant #educationSection{grid-area:education}
+#cvPreview.template-two-column #skillsSection,#cvPreview.template-elegant #skillsSection{grid-area:skills}
+#cvPreview.template-two-column #languagesSection,#cvPreview.template-elegant #languagesSection{grid-area:languages}
+#cvPreview.template-two-column #certificationsSection,#cvPreview.template-elegant #certificationsSection{grid-area:certifications}
+#cvPreview.template-two-column #additionalSection,#cvPreview.template-elegant #additionalSection{grid-area:additional}
+#cvPreview.template-two-column .cv-header{border-bottom:4px solid #17608a;padding-bottom:17px}
+#cvPreview.template-two-column .cv-section h3{color:#17608a;border-bottom:2px solid #dceaf2}
+#cvPreview.template-two-column .cv-photo{border-radius:50%;width:94px;height:94px}
+#cvPreview.template-elegant{--accent:#334155;font-family:Georgia,'Times New Roman',serif}
+#cvPreview.template-elegant .cv-header{border-bottom:1px solid #aeb8c5}
+#cvPreview.template-elegant .cv-name{font-family:Georgia,'Times New Roman',serif;font-weight:600;letter-spacing:.4px}
+#cvPreview.template-elegant .cv-section h3{font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#334155;border-bottom:1px solid #b8c1cc}
+#cvPreview.template-elegant .cv-photo{border-radius:50%;width:92px;height:92px}
+#cvPreview.template-creative{--accent:#7c3aed}
+#cvPreview.template-creative .cv-header{background:linear-gradient(120deg,#f3e8ff,#e0e7ff);border:0;border-radius:13px;padding:22px;margin:-8px -8px 18px}
+#cvPreview.template-creative .cv-name{color:#4c1d95}
+#cvPreview.template-creative .cv-job{color:#6d28d9}
+#cvPreview.template-creative .cv-section h3{color:#6d28d9;border-bottom:2px solid #ddd6fe}
+#cvPreview.template-creative .skill-item{background:#f5f3ff;border-color:#ddd6fe;color:#5b21b6;border-radius:20px;padding:5px 10px}
+#cvPreview.template-tech{--accent:#087f8c}
+#cvPreview.template-tech .cv-header{border-left:6px solid #087f8c;border-bottom:1px solid #b8dadd;padding:4px 0 15px 17px}
+#cvPreview.template-tech .cv-name{font-family:Arial,Helvetica,sans-serif;letter-spacing:-.5px}
+#cvPreview.template-tech .cv-section h3{color:#087f8c;border-bottom:2px solid #cce8e9}
+#cvPreview.template-tech .skill-item{background:#effafa;border-color:#b8dadd;color:#075c65}
+#cvPreview.template-european{--accent:#315b52;font-family:Arial,Helvetica,sans-serif}
+#cvPreview.template-european .cv-header{border-bottom:1px solid #b7c9c2;padding-bottom:18px}
+#cvPreview.template-european .cv-name{font-size:31px;font-weight:600;letter-spacing:-.6px;color:#24483f}
+#cvPreview.template-european .cv-job{font-size:14px;letter-spacing:.5px;text-transform:uppercase;color:#52766b}
+#cvPreview.template-european .cv-section h3{color:#315b52;border-bottom:1px solid #c6d6d0;letter-spacing:1.2px}
+#cvPreview.template-european .cv-photo{border-radius:50%;width:98px;height:98px}
+@media(max-width:600px){
+ #cvPreview.template-two-column #standardLayout,#cvPreview.template-elegant #standardLayout{display:block}
+ #cvPreview.template-creative .cv-header{margin:0 0 18px;padding:16px}
+}
 @media(max-width:900px){.workspace{grid-template-columns:1fr}.paper{min-height:700px}}
-@media(max-width:520px){.two-columns{grid-template-columns:1fr}.panel{padding:16px}.paper{padding:25px 19px}.template-grid{grid-template-columns:1fr 1fr}.guide-panel{padding:20px}.guide-steps{grid-template-columns:1fr}.guide-panel h2{font-size:22px}}
+@media(max-width:520px){.two-columns{grid-template-columns:1fr}.panel{padding:16px}.paper{padding:25px 19px}.template-grid{grid-template-columns:1fr 1fr}}
 @page{size:A4;margin:14mm}
 @media print{
  body{background:#fff}
- header,.hero,.form-panel,footer,.seo-content,.preview-top,.privacy-note{display:none!important}
+ header,.hero,.form-panel,footer,.preview-top,.privacy-note{display:none!important}
  .workspace{display:block;margin:0;padding:0;max-width:none}
  .preview-panel{padding:0;border:0;box-shadow:none;margin:0}
  .paper{border:0;box-shadow:none;padding:0;min-height:auto;width:100%}
@@ -157,14 +132,7 @@ footer a:hover{color:#dce9ff}
 </style>
 </head>
 <body>
-
-<header>
-<div class="header-inner">
-<div class="logo">📄 FreeCV Maker</div>
-<div class="header-tag">Your career. Your CV. Completely free.</div>
-</div>
-</header>
-
+<header><div class="header-inner"><div class="logo">📄 FreeCV Maker</div><div class="header-tag">Your career. Your CV. Completely free.</div></div></header>
 <section class="hero">
 <h1>Create Your Professional CV for Free</h1>
 <p>Build a professional, ATS-friendly resume in minutes. Enter your details, preview your CV and save it as a PDF. No registration and no payment required.</p>
@@ -177,11 +145,18 @@ footer a:hover{color:#dce9ff}
 <p class="panel-intro">Complete the fields below. Your CV preview updates automatically. Leave optional fields blank.</p>
 <form id="cvForm">
 <div class="section-heading">Choose a CV Template</div>
+<div class="field"><label for="templateSearch">Find a template</label><input id="templateSearch" type="search" placeholder="Search ATS, modern, executive, creative..."><div class="hint">Search the 10 free templates by name or style.</div></div>
 <div class="template-grid" id="templateChoices">
 <button type="button" class="template-option active" data-template="ats">Professional ATS<span>Clean single-column layout; best starting point for ATS.</span></button>
 <button type="button" class="template-option" data-template="modern">Modern Blue<span>Contemporary blue headings and accents.</span></button>
 <button type="button" class="template-option" data-template="executive">Executive<span>Two-column design for a polished senior profile.</span></button>
 <button type="button" class="template-option" data-template="classic">Classic<span>Traditional, centered professional CV.</span></button>
+<button type="button" class="template-option" data-template="minimalist">Minimalist ATS<span>Compact black-and-white layout for straightforward applications.</span></button>
+<button type="button" class="template-option" data-template="two-column">Modern Two-Column<span>Contemporary sidebar for skills, languages and contact details.</span></button>
+<button type="button" class="template-option" data-template="elegant">Elegant Executive<span>Refined two-column style for experienced professionals.</span></button>
+<button type="button" class="template-option" data-template="creative">Creative Modern<span>Fresh colour accents and a distinctive personal profile.</span></button>
+<button type="button" class="template-option" data-template="tech">Tech Professional<span>Modern teal accents for technical and digital careers.</span></button>
+<button type="button" class="template-option" data-template="european">European Modern<span>Clean European-inspired layout with a polished profile.</span></button>
 </div>
 
 <div class="section-heading">1. Personal Information</div>
@@ -228,29 +203,19 @@ footer a:hover{color:#dce9ff}
 <div class="section-heading">8. Additional Information (Optional)</div>
 <div class="field"><label for="additional">Other Relevant Information</label><textarea id="additional" placeholder="Projects, awards, volunteer experience or other relevant information."></textarea></div>
 </form>
-
 <div class="actions">
 <button type="button" class="primary" id="updateButton">Update CV Preview</button>
 <button type="button" class="download" id="downloadButton">Download CV as PDF</button>
+<button type="button" class="primary" id="wordDownloadButton">Download Word (.docx)</button>
 <button type="button" class="secondary" id="clearButton">Clear Form</button>
 </div>
-
 <div class="privacy-note">🔒 Your information is processed in your browser. This page does not intentionally send your CV details to a server. Avoid using a shared computer if you want to keep your information private.</div>
 </section>
 
 <section class="panel preview-panel">
-<div class="preview-top"><h2>Live CV Preview</h2><button type="button" class="download" id="previewDownloadButton">Save as PDF</button></div>
+<div class="preview-top"><h2>Live CV Preview</h2><div class="actions" style="margin:0"><button type="button" class="download" id="previewDownloadButton">Save as PDF</button><button type="button" class="primary" id="previewWordDownloadButton">Save as Word</button></div></div>
 <div class="paper template-ats" id="cvPreview">
-<div class="cv-header">
-<div class="cv-header-content">
-<div class="cv-header-text">
-<h1 class="cv-name" id="pName">Your Name</h1>
-<div class="cv-job" id="pJob">Your Professional Title</div>
-<div class="cv-contact" id="pContact">Email · Phone · Location</div>
-</div>
-<img class="cv-photo" id="pPhoto" alt="Profile photo">
-</div>
-</div>
+<div class="cv-header"><div class="cv-header-content"><div class="cv-header-text"><h1 class="cv-name" id="pName">Your Name</h1><div class="cv-job" id="pJob">Your Professional Title</div><div class="cv-contact" id="pContact">Email · Phone · Location</div></div><img class="cv-photo" id="pPhoto" alt="Profile photo"></div></div>
 <div id="standardLayout">
 <section class="cv-section" id="summarySection"><h3>Professional Summary</h3><p id="pSummary" class="empty-note">Your professional summary will appear here.</p></section>
 <section class="cv-section" id="experienceSection"><h3>Work Experience</h3><div id="pExperience"><p class="empty-note">Your work experience will appear here.</p></div></section>
@@ -264,166 +229,6 @@ footer a:hover{color:#dce9ff}
 </section>
 </main>
 
-<!-- Original helpful content added for visitors and search engines -->
-<section class="seo-content" aria-labelledby="cv-guide-title">
-<div class="guide-panel">
-
-<h2 id="cv-guide-title">How to Create a Professional CV</h2>
-
-<p class="guide-intro">A professional curriculum vitae (CV) is a clear summary of your work experience, education, skills and qualifications. It helps employers understand your background and decide whether your experience matches a job opening. A well-organised CV should be easy to read, relevant to the position and accurate. FreeCV Maker helps you organise your information, choose a layout, preview your CV and save it as a PDF without creating an account.</p>
-
-<h3>How to Create Your CV with FreeCV Maker</h3>
-<p>Follow these steps to prepare your CV using the builder on this page:</p>
-
-<div class="guide-steps">
-<div class="guide-step">
-<h3>1. Choose a template</h3>
-<p>Select a layout that suits your experience and the type of job you want. The Professional ATS template uses a simple, single-column structure.</p>
-</div>
-<div class="guide-step">
-<h3>2. Enter your contact details</h3>
-<p>Add your name, professional title, email address, phone number and location. Include a LinkedIn profile if it is relevant and up to date.</p>
-</div>
-<div class="guide-step">
-<h3>3. Write your professional summary</h3>
-<p>Introduce your professional background, important strengths and relevant experience in a short paragraph tailored to the position.</p>
-</div>
-<div class="guide-step">
-<h3>4. Add your work experience</h3>
-<p>List your recent and relevant roles. Include job titles, company names, locations, employment dates and clear descriptions of your contributions.</p>
-</div>
-<div class="guide-step">
-<h3>5. Include education and skills</h3>
-<p>Add qualifications, institutions, relevant technical skills, software knowledge and languages. Prioritise information that matches the vacancy.</p>
-</div>
-<div class="guide-step">
-<h3>6. Preview and download</h3>
-<p>Review the completed CV for accuracy, spelling and layout. Use the PDF download option to save a copy for your job applications.</p>
-</div>
-</div>
-
-<h3>What Should a Professional CV Include?</h3>
-<p>The sections in a CV depend on your career stage and the job requirements. Most job seekers can start with the following information:</p>
-<ul>
-<li><strong>Contact information:</strong> Your full name, professional email address, phone number and current city or country.</li>
-<li><strong>Professional summary:</strong> A short introduction explaining your experience, strengths and career focus.</li>
-<li><strong>Work experience:</strong> Relevant positions, employers, dates and responsibilities or achievements.</li>
-<li><strong>Education:</strong> Degrees, diplomas, professional qualifications and relevant training.</li>
-<li><strong>Skills:</strong> Job-related technical skills, software, tools and transferable abilities.</li>
-<li><strong>Languages:</strong> Languages you can use professionally and your honest proficiency level.</li>
-<li><strong>Certifications:</strong> Relevant courses, licences and professional certificates.</li>
-</ul>
-<p>You do not need to include every possible section. Choose information that helps demonstrate your suitability for the particular role.</p>
-
-<h3>How to Write a Strong Professional Summary</h3>
-<p>Your professional summary is usually one of the first sections an employer reads. Keep it concise and specific. Mention your professional area, relevant experience, strongest skills and the kind of contribution you can make.</p>
-<p>For example, an administrative professional might describe experience coordinating office activities, maintaining records, supporting teams and using relevant office software. A technical professional could highlight their specialist tools, project experience and technical responsibilities.</p>
-<p>Avoid generic statements such as "I am hardworking and looking for a challenging opportunity" unless you support them with meaningful professional details. Use clear language and adapt your summary to the job description.</p>
-
-<h3>How to Describe Work Experience and Achievements</h3>
-<p>List your work experience in reverse chronological order, starting with your most recent position. For each role, provide your job title, employer, location and employment dates.</p>
-<p>Describe your main responsibilities using concise statements. Where possible, include measurable achievements such as the number of projects completed, customers supported, reports prepared, deadlines achieved or processes improved. Only use figures that are accurate and that you can explain during an interview.</p>
-<p>Use action words such as managed, prepared, designed, coordinated, analysed, maintained, developed and supported when they accurately describe your work.</p>
-
-<h3>How to Make Your CV More ATS-Friendly</h3>
-<p>Many employers use applicant tracking systems (ATS) to organise and review job applications. A readable CV can make it easier for both software and recruiters to identify relevant information. No particular format guarantees that a CV will pass every ATS, because systems and employer settings differ.</p>
-<ul>
-<li>Use clear section headings such as Work Experience, Education and Skills.</li>
-<li>Choose a simple layout when applying through online recruitment systems.</li>
-<li>Use standard job titles and relevant terminology from the vacancy when it truthfully describes your experience.</li>
-<li>Avoid unnecessary graphics, complex tables and decorative elements in an ATS-focused CV.</li>
-<li>Use consistent dates, spelling and formatting throughout the document.</li>
-<li>Check the exported PDF to make sure the text is readable and the layout is correct.</li>
-</ul>
-<div class="guide-callout">
-<p><strong>Helpful tip:</strong> The Professional ATS template in FreeCV Maker provides a straightforward single-column starting layout. Always check the employer's application instructions, because some employers request a specific file type or format.</p>
-</div>
-
-<h3>CV Advice for Fresh Graduates and Job Seekers with No Experience</h3>
-<p>If you are a recent graduate or applying for your first job, you can still create a useful CV without full-time work experience. Focus on your education, relevant coursework, academic projects, internships, volunteering, practical training and transferable skills.</p>
-<p>Explain what you did, which tools or knowledge you used and what you learned. Include part-time work or other responsibilities when they demonstrate skills relevant to the role. Do not invent employment history or qualifications.</p>
-<p>For more detailed advice, read our <a href="/best-cv-format-for-freshers.html">CV format guide for freshers</a> and <a href="/cv-with-no-work-experience.html">guide to writing a CV with no work experience</a>.</p>
-
-<h3>CV Advice for Experienced Professionals</h3>
-<p>Experienced candidates should prioritise relevant career achievements, specialist knowledge, leadership responsibilities and professional development. You do not need to describe every task from every previous job. Give more space to recent roles and experience that closely matches the position you are applying for.</p>
-<p>Keep your job titles, employment dates and qualifications accurate. Review older information and remove details that no longer help demonstrate your suitability.</p>
-<p>Read our <a href="/experienced-professional-cv-guide.html">CV guide for experienced professionals</a> for more guidance.</p>
-
-<h3>How to Prepare a CV for Jobs in Saudi Arabia</h3>
-<p>When applying for jobs in Saudi Arabia, follow the employer's application instructions and the conventions used in your industry. Make your professional title, relevant experience, qualifications and contact details easy to find. If you have Saudi work experience, describe your actual responsibilities and projects clearly.</p>
-<p>Include a professional photo only when it is appropriate for the role and requested or accepted by the employer. Do not include sensitive personal information unless it is specifically required and appropriate.</p>
-<p>Explore our <a href="/cv-for-jobs-in-saudi-arabia.html">guide to preparing a CV for jobs in Saudi Arabia</a>.</p>
-
-<h3>Common CV Mistakes to Avoid</h3>
-<ul>
-<li>Typos, grammar mistakes and inconsistent formatting.</li>
-<li>Using the same generic CV for every application without considering the job description.</li>
-<li>Including inaccurate dates, qualifications or achievements.</li>
-<li>Writing long paragraphs that make important information difficult to find.</li>
-<li>Adding unrelated personal details or outdated information.</li>
-<li>Using an unprofessional email address.</li>
-<li>Sending a PDF without checking its appearance and readability.</li>
-</ul>
-<p>Before applying, read the CV from beginning to end and check that your contact details are correct. Ask someone you trust to review it if possible. You can also use our guide to <a href="/common-cv-mistakes-to-avoid.html">common CV mistakes</a>.</p>
-
-<h3>Frequently Asked Questions About Free CV Creation</h3>
-
-<div class="faq-item">
-<h3>Is FreeCV Maker really free?</h3>
-<p>Yes. FreeCV Maker is designed to let visitors create, preview and download a CV without registration, subscription or payment. There is no watermark added by the CV builder.</p>
-</div>
-
-<div class="faq-item">
-<h3>Do I need to create an account?</h3>
-<p>No account or registration is required to use the CV builder on this page.</p>
-</div>
-
-<div class="faq-item">
-<h3>Can I download my CV as a PDF?</h3>
-<p>Yes. Enter your details, review the preview and select Download CV as PDF. Your browser opens its print dialog, where you can choose Save as PDF.</p>
-</div>
-
-<div class="faq-item">
-<h3>Can I use FreeCV Maker on a mobile phone?</h3>
-<p>The page is designed to adapt to smaller screens. The available experience can depend on your device, browser and available memory.</p>
-</div>
-
-<div class="faq-item">
-<h3>Does FreeCV Maker upload my personal CV information?</h3>
-<p>The CV builder processes the information you enter in your browser and does not intentionally send your CV details to the FreeCV Maker server. Your browser may retain information locally, so avoid using a shared device if privacy is a concern.</p>
-</div>
-
-<div class="faq-item">
-<h3>Which CV template should I choose?</h3>
-<p>The Professional ATS template is a simple starting point for online applications. Modern Blue, Executive and Classic offer alternative layouts. Choose a format that is readable and appropriate for the employer's requirements.</p>
-</div>
-
-<div class="faq-item">
-<h3>Can freshers create a CV using this tool?</h3>
-<p>Yes. Fresh graduates can include education, projects, internships, training, skills and other relevant experience. Full-time employment history is not required to prepare a CV.</p>
-</div>
-
-<h3>Explore More Free CV and Career Guides</h3>
-<p>Continue learning with these practical guides:</p>
-<ul>
-<li><a href="/how-to-write-professional-cv.html">How to Write a Professional CV</a></li>
-<li><a href="/ats-friendly-resume-guide.html">ATS-Friendly Resume Guide</a></li>
-<li><a href="/best-cv-format-for-freshers.html">Best CV Format for Freshers</a></li>
-<li><a href="/cv-with-no-work-experience.html">CV with No Work Experience</a></li>
-<li><a href="/experienced-professional-cv-guide.html">CV for Experienced Professionals</a></li>
-<li><a href="/cv-for-jobs-in-saudi-arabia.html">CV for Jobs in Saudi Arabia</a></li>
-<li><a href="/how-to-write-a-professional-cover-letter.html">Professional Cover Letter Guide</a></li>
-<li><a href="/common-cv-mistakes-to-avoid.html">Common CV Mistakes to Avoid</a></li>
-<li><a href="/how-to-prepare-for-a-job-interview.html">Job Interview Preparation</a></li>
-<li><a href="/how-to-explain-employment-gaps-in-your-cv.html">How to Explain Employment Gaps</a></li>
-</ul>
-
-<p>When your CV is ready, return to the builder above, check your details and save your document as a PDF.</p>
-<a class="guide-cta" href="#cvForm">Create Your Free CV</a>
-
-</div>
-</section>
-
 <footer>
 <strong>FreeCV Maker</strong>
 <p>Create your professional CV without paying anything.</p>
@@ -433,24 +238,10 @@ footer a:hover{color:#dce9ff}
 <a href="/privacy.html">Privacy Policy</a> |
 <a href="/terms.html">Terms &amp; Conditions</a>
 </p>
-<div class="footer-guides">
-<strong>Free CV and Career Guides</strong>
-<p>
-<a href="/how-to-write-professional-cv.html">How to Write a Professional CV</a> |
-<a href="/ats-friendly-resume-guide.html">ATS-Friendly Resume Guide</a> |
-<a href="/best-cv-format-for-freshers.html">Best CV Format for Freshers</a> |
-<a href="/cv-with-no-work-experience.html">CV with No Work Experience</a> |
-<a href="/experienced-professional-cv-guide.html">CV for Experienced Professionals</a> |
-<a href="/cv-for-jobs-in-saudi-arabia.html">CV for Jobs in Saudi Arabia</a> |
-<a href="/how-to-write-a-professional-cover-letter.html">Professional Cover Letter Guide</a> |
-<a href="/common-cv-mistakes-to-avoid.html">Common CV Mistakes</a> |
-<a href="/how-to-prepare-for-a-job-interview.html">Job Interview Preparation</a> |
-<a href="/how-to-explain-employment-gaps-in-your-cv.html">Explaining Employment Gaps</a>
-</p>
-</div>
 <p>© 2026 FreeCV Maker. All rights reserved.</p>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" referrerpolicy="no-referrer"></script>
 <script>
 (function(){
 "use strict";
@@ -517,8 +308,8 @@ function updateCV(){
  document.getElementById("pJob").textContent=get("jobTitle")||"Your Professional Title";
  const contact=[get("email"),get("phone"),get("location"),get("linkedin")].filter(Boolean);
  document.getElementById("pContact").textContent=contact.join("  |  ")||"Email · Phone · Location";
- if(photoDataUrl){photoPreview.src=photoDataUrl;photoPreview.style.display="block";removePhotoButton.style.display="inline-block";}
- else{photoPreview.removeAttribute("src");photoPreview.style.display="none";removePhotoButton.style.display="none";}
+  if(photoDataUrl){photoPreview.src=photoDataUrl;photoPreview.style.display="block";removePhotoButton.style.display="inline-block";}
+  else{photoPreview.removeAttribute("src");photoPreview.style.display="none";removePhotoButton.style.display="none";}
  const summary=get("summary");document.getElementById("pSummary").textContent=summary||"Your professional summary will appear here.";document.getElementById("pSummary").classList.toggle("empty-note",!summary);
  setSectionVisible("summarySection",!!summary);
  setSectionVisible("experienceSection",renderEntries("experience","pExperience","Your work experience will appear here.")>0);
@@ -540,10 +331,47 @@ function downloadCV(){
  if(!document.getElementById("fullName").value.trim()){alert("Please enter your full name before downloading your CV.");document.getElementById("fullName").focus();return;}
  window.print();
 }
+function xmlEscape(value){
+ return String(value??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\"/g,"&quot;").replace(/'/g,"&apos;");
+}
+function wordParagraph(text,style){
+ return String(text??"").split(/\r?\n/).map(line=>'<w:p><w:pPr>'+(style?'<w:pStyle w:val="'+style+'"/>':"")+'</w:pPr><w:r><w:t xml:space="preserve">'+xmlEscape(line)+'</w:t></w:r></w:p>').join("");
+}
+function downloadWord(){
+ updateCV();
+ const name=document.getElementById("fullName").value.trim();
+ if(!name){alert("Please enter your full name before downloading your CV.");document.getElementById("fullName").focus();return;}
+ if(typeof JSZip==="undefined"){alert("The Word export component could not load. Please check your internet connection and try again.");return;}
+ const get=id=>document.getElementById(id).value.trim();
+ const paragraphs=[];
+ const add=(text,style)=>{if(String(text||"").trim())paragraphs.push(wordParagraph(text,style));};
+ add(name,"Title");add(get("jobTitle"),"Subtitle");
+ add([get("email"),get("phone"),get("location"),get("linkedin")].filter(Boolean).join(" | "));
+ const section=(title)=>add(title,"Heading1");
+ if(get("summary")){section("Professional Summary");add(get("summary"));}
+ const experience=getEntries("experience");if(experience.length){section("Work Experience");experience.forEach(x=>{add(x.title,"Heading2");add([x.company,x.place,x.dates].filter(Boolean).join(" | "));add(x.details);});}
+ const education=getEntries("education");if(education.length){section("Education");education.forEach(x=>{add(x.qualification,"Heading2");add([x.institution,x.year].filter(Boolean).join(" | "));add(x.details);});}
+ const skills=getEntries("skills").map(x=>x.name).filter(Boolean);if(skills.length){section("Skills");add(skills.join(" • "));}
+ const languages=getEntries("languages");if(languages.length){section("Languages");languages.forEach(x=>add([x.name,x.level].filter(Boolean).join(" — ")));}
+ const certifications=getEntries("certifications");if(certifications.length){section("Certifications and Training");certifications.forEach(x=>add([x.name,x.issuer,x.year].filter(Boolean).join(" | ")));}
+ if(get("additional")){section("Additional Information");add(get("additional"));}
+ const documentXml='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'+
+ '<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>'+paragraphs.join("")+ 
+ '<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="900" w:right="900" w:bottom="900" w:left="900" w:header="500" w:footer="500" w:gutter="0"/></w:sectPr></w:body></w:document>';
+ const stylesXml='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/><w:rPr><w:sz w:val="21"/><w:szCs w:val="21"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Title"><w:name w:val="Title"/><w:basedOn w:val="Normal"/><w:rPr><w:b/><w:sz w:val="34"/><w:color w:val="173B70"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Subtitle"><w:name w:val="Subtitle"/><w:basedOn w:val="Normal"/><w:rPr><w:sz w:val="24"/><w:color w:val="52647A"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Heading1"><w:name w:val="heading 1"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:pPr><w:keepNext/><w:spacing w:before="260" w:after="100"/></w:pPr><w:rPr><w:b/><w:sz w:val="25"/><w:color w:val="1764BD"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Heading2"><w:name w:val="heading 2"/><w:basedOn w:val="Normal"/><w:rPr><w:b/><w:sz w:val="22"/></w:rPr></w:style></w:styles>';
+ const zip=new JSZip();
+ zip.file("[Content_Types].xml",'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/></Types>');
+ zip.folder("_rels").file(".rels",'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>');
+ const word=zip.folder("word");word.file("document.xml",documentXml);word.file("styles.xml",stylesXml);
+ word.folder("_rels").file("document.xml.rels",'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rIdStyles" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>');
+ zip.generateAsync({type:"blob",mimeType:"application/vnd.openxmlformats-officedocument.wordprocessingml.document"}).then(blob=>{
+  const url=URL.createObjectURL(blob);const link=document.createElement("a");link.href=url;link.download=(name.replace(/[^a-z0-9-_ ]/gi,"").trim().replace(/\s+/g,"-")||"My-CV")+".docx";document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
+ }).catch(error=>{console.error(error);alert("Word file could not be created. Please try again.");});
+}
 function resetCV(){
  if(!confirm("Are you sure you want to clear all CV information?"))return;
  document.getElementById("cvForm").reset();
- photoDataUrl="";photoPreview.removeAttribute("src");photoUpload.value="";
+  photoDataUrl="";photoPreview.removeAttribute("src");photoUpload.value="";
  Object.keys(listConfig).forEach(section=>document.getElementById(listConfig[section].container).replaceChildren());
  Object.keys(counts).forEach(section=>counts[section]=0);
  ["experience","education","skills","languages","certifications"].forEach(section=>addEntry(section));
@@ -560,6 +388,9 @@ document.getElementById("cvForm").addEventListener("input",updateCV);
 document.getElementById("updateButton").addEventListener("click",updateCV);
 document.getElementById("downloadButton").addEventListener("click",downloadCV);
 document.getElementById("previewDownloadButton").addEventListener("click",downloadCV);
+document.getElementById("wordDownloadButton").addEventListener("click",downloadWord);
+document.getElementById("previewWordDownloadButton").addEventListener("click",downloadWord);
+document.getElementById("templateSearch").addEventListener("input",event=>{const query=event.target.value.trim().toLowerCase();document.querySelectorAll(".template-option").forEach(button=>{button.hidden=!button.textContent.toLowerCase().includes(query)||!button.dataset.template;});});
 document.getElementById("clearButton").addEventListener("click",resetCV);
 photoUpload.addEventListener("change",()=>{
  const file=photoUpload.files && photoUpload.files[0];
